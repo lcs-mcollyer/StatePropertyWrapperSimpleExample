@@ -26,12 +26,16 @@ struct CircleView: View {
             //inpute
             Text("Radius")
                 .bold()
+            HStack{
+                Spacer()
+                Text("\( String(format: "%.2f", area)) square units ")
+                Spacer()
+            }
             
             
             // The syntax of $ says to use the property, radius and BIND it to their control
-            //
             
-            Slider(value: .constant(30.0), in: 0.0...100.0, label: {
+            Slider(value: $area, in: 0.0...100.0, label: {
                 Text("Radius")
             },
                    minimumValueLabel: {
@@ -42,17 +46,12 @@ struct CircleView: View {
                 Text("100.0")
             })
             
-            
-            TextField("Radius",
-                      text: .constant(""),
-                      prompt:  Text("e.g. : 24.5"))
-                .keyboardType(.decimalPad)
             //output
             Text("Area")
                 .bold()
             
             
-            Text("314.2 square units")
+            Text("\(area) square units")
             
             
             Spacer()
